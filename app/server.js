@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
   });
 
 app.get('/profile-picture', function (req, res) {
-  var img = fs.readFileSync('/home/gary/js-docker-demo-app/app/images/profile-1.jpg');
+  var img = fs.readFileSync('/home/gary/js-docker-demo-mongodb/app/images/profile-1.jpg');
   res.writeHead(200, {'Content-Type': 'image/jpg' });
   res.end(img, 'binary');
 });
