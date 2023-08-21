@@ -22,8 +22,13 @@ app.get('/profile-picture', function (req, res) {
 
 app.post('/update-profile', function (req, res) {
   var userObj = req.body;
+  
+  // Below connection link is for local app deployment
+  // MongoClient.connect("mongodb://admin:password@localhost:27017", function (err, client) 
 
-  MongoClient.connect("mongodb://admin:password@localhost:27017", function (err, client) {
+  // This connection link is for Docker app deployment
+  MongoClient.connect("mongodb://admin:password@mongodb", function (err, client) 
+  {
     if (err) throw err;
 
     var db = client.db('user-account');
@@ -45,7 +50,12 @@ app.post('/update-profile', function (req, res) {
 app.get('/get-profile', function (req, res) {
   var response = {};
   // Connect to the db
-  MongoClient.connect("mongodb://admin:password@localhost:27017", function (err, client) {
+  // Below connection link is for local app deployment
+  // MongoClient.connect("mongodb://admin:password@localhost:27017", function (err, client) 
+
+  // This connection link is for Docker app deployment
+  MongoClient.connect("mongodb://admin:password@mongodb", function (err, client) 
+  {
     if (err) throw err;
 
     var db = client.db('user-account');
